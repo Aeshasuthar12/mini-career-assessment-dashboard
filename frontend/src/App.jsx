@@ -1,8 +1,13 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import AddStudent from "./pages/AddStudent";
 import Dashboard from "./pages/Dashboard";
+import { useState } from "react";
 
 function App() {
+  const [students, setStudents] = useState([]);
+  const addStudent = (student) => {
+        setStudents((prevStudents) => [...prevStudents,student]);
+  }
   return (
     <BrowserRouter>
       <div className="min-h-screen bg-gray-50 flex justify-center pt-10 px-4">
@@ -19,8 +24,8 @@ function App() {
             </Link>
           </nav>
           <Routes>
-            <Route path="/" element={<AddStudent />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/" element={<AddStudent  addStudent={addStudent} />} />
+            <Route path="/dashboard" element={<Dashboard students={students}/>} />
           </Routes>
         </div>
       </div>

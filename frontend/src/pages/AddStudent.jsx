@@ -2,10 +2,10 @@ import React from "react";
 import StudentForm from "../components/StudentForm"
 
 
-function AddStudent() {
+function AddStudent({addStudent}) {
   return (
     <div className="flex justify-center">
-     <StudentForm/>
+     <StudentForm addStudent={addStudent}/>
     </div>
   );
 }

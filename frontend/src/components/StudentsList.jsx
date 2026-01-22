@@ -1,22 +1,13 @@
 import React from "react";
 
-function StudentsList() {
-  const students = [
-    {
-      id: 1,
-      name: "Aesha Suthar",
-      class: 12,
-      interests: "coding, math",
-      aptitudeScore: 80,
-    },
-    {
-      id: 2,
-      name: "Dhruvi",
-      class: 11,
-      interests: "Design",
-      aptitudeScore: 83,
-    },
-  ];
+function StudentsList({students}) {
+  
+  if(students.length==0){
+    return (
+      <p className="text-center text-gray-500">No Student Added Yet</p>
+    );
+  }
+
   return (
     <div>
       <h2>Student Dashboard</h2>
