@@ -1,31 +1,42 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import AddStudent from "./pages/AddStudent";
 import Dashboard from "./pages/Dashboard";
-import { useState } from "react";
 
 function App() {
-  const [students, setStudents] = useState([]);
-  const addStudent = (student) => {
-        setStudents((prevStudents) => [...prevStudents,student]);
-  }
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-gray-50 flex justify-center pt-10 px-4">
-        <div className="w-full max-w-md">
-          <h1 className="text-2xl font-semibold mb-6 text-center">
-            Mini Career Assessment Dashboard
-          </h1>
-          <nav className="flex justify-center mb-8 gap-4">
-            <Link to="/" className="text-sm font-medium underline">
-              Add Student
-            </Link>
-            <Link to="/dashboard" className="text-sm font-medium underline">
-              Dashboard
-            </Link>
-          </nav>
+      <div className="min-h-screen bg-slate-50">
+        <header className="bg-slate-50">
+          <div className="max-w-5xl mx-auto px-6 py-4 text-center">
+            <h1 className="text-xl font-semibold text-gray-800">
+              Mini Career Assessment Dashboard
+            </h1>
+
+            <nav className="mt-2 flex justify-center gap-3">
+              <Link
+                to="/"
+                className="px-4 py-1.5 rounded-md text-sm
+                   bg-indigo-100 text-indigo-700
+                   hover:bg-indigo-200"
+              >
+                Add Student
+              </Link>
+
+              <Link
+                to="/dashboard"
+                className="px-4 py-1.5 rounded-md text-sm
+                   text-gray-600 hover:bg-gray-100"
+              >
+                Dashboard
+              </Link>
+            </nav>
+          </div>
+        </header>
+
+        <div className="px-4 mt-2">
           <Routes>
-            <Route path="/" element={<AddStudent  addStudent={addStudent} />} />
-            <Route path="/dashboard" element={<Dashboard students={students}/>} />
+            <Route path="/" element={<AddStudent />} />
+            <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
         </div>
       </div>

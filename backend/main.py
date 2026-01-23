@@ -53,3 +53,4 @@ def get_student_by_id(student_id: int, db: Session = Depends(get_db)):
         return {"error": "Student not found"}
 
     return student
+

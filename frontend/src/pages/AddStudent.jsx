@@ -1,11 +1,10 @@
-import React from "react";
 import StudentForm from "../components/StudentForm"
 
 
-function AddStudent({addStudent}) {
+function AddStudent() {
   return (
     <div className="flex justify-center">
-     <StudentForm addStudent={addStudent}/>
+     <StudentForm/>
     </div>
   );
 }
